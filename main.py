@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from models import Profile
+from models.models import Profile
 
 app = FastAPI()
 
