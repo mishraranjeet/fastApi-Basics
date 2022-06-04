@@ -7,6 +7,8 @@
     build:
       runs-on: ubuntu-20.04
       steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
         - name: Build python enviornment
           uses: actions/setup-python@v2
           with:
