@@ -22,7 +22,10 @@
             docker login -u $username -p $password
         - name: Build docker image
           run: | 
-            docker build -t fast_api_project/app:latest .
+            docker build -t app:latest .
+        - name: Tag image to docker hub repo
+          run: |
+            docker tag app ${{ secrets.USERNAME }}/fast_api_project
         - name: Push docker image to docker hub
           run: |
             docker push ${{ secrets.USERNAME }}/fast_api_project
