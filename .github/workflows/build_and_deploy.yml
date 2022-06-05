@@ -37,7 +37,10 @@
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws-region: ap-south-1
 
-        - name: Tag image to docker hub repo
+        - name : ECR login
+          run: |
+            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com
+        - name: Tag image to ECR repo
           run: |
             docker tag app ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/fast_api_project
         - name: Push docker image to docker hub
