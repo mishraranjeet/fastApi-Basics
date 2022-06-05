@@ -39,10 +39,10 @@
 
         - name: Tag image to docker hub repo
           run: |
-            docker tag app public.ecr.aws/${{ secrets.ECR_KEY }}/fast_api_project
+            docker tag app ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/fast_api_project
         - name: Push docker image to docker hub
           run: |
-                docker push public.ecr.aws/${{ secrets.ECR_KEY }}/fast_api_project
+                docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/fast_api_project
 
 
 
